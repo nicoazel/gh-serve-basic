@@ -18,7 +18,7 @@ body{
 }
 .viewer-master{
   display: inline-block;
-  min-width: 400px;
+  min-width: 600px;
   min-height: 400px;
 }
 .footer{
@@ -31,6 +31,7 @@ body{
 
 }
 #viewer-bottom{
+  width: 600px;
 
 }
 
@@ -40,10 +41,10 @@ body{
 }
 
 #controls {
-  display:flex;
   flex-direction:column;
   background-color:none;
   overflow:auto;
+
   top: 0px;
   padding: 10px;
 }

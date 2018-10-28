@@ -22,9 +22,10 @@ function rhino_logo_build(){
 
     // create a gradient background
     var canvas = document.createElement( 'canvas' );
-    canvas.id="three_canvas"
-    canvas.width = 500;
+    canvas.width= 500;
     canvas.height = 500;
+    canvas.style.width= "500px";
+    canvas.style.width = "500px";
     var context = canvas.getContext( '2d' );
     var gradient = context.createLinearGradient( 0, 0, 0, canvas.height);
     gradient.addColorStop( 0.1, 'rgba(0,210,210,1)' );
