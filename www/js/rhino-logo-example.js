@@ -1,10 +1,12 @@
 function rhino_logo_build(){
+
     init();
     animate();
 }
   // holds top level variables
   var RHINOLOGO = {};
-
+  var thisWidth = 600;
+  var thisHeight = 500;
 
   /**
    * Set up empty GL canvas with a gradient background. The geomtry will
@@ -14,15 +16,16 @@ function rhino_logo_build(){
     RhinoCompute.authToken = RhinoCompute.getAuthToken();
     RHINOLOGO.scene = new THREE.Scene();
 
-    RHINOLOGO.camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000 );
+    RHINOLOGO.camera = new THREE.PerspectiveCamera( 45, thisWidth / thisHeight, 1, 1000 );
     RHINOLOGO.camera.position.z = 40;
     RHINOLOGO.wireMaterial = new THREE.LineBasicMaterial({color: 0x000000});
     RHINOLOGO.meshMaterial = new THREE.MeshPhongMaterial({color: 0xffffff});
 
 
     // create a gradient background
+
     var canvas = document.createElement( 'canvas' );
-    canvas.width= 500;
+    canvas.width= 600;
     canvas.height = 500;
     canvas.style.width= "500px";
     canvas.style.width = "500px";
@@ -52,18 +55,18 @@ function rhino_logo_build(){
     controls.minDistance = 10;
     controls.maxDistance = 500;
 
-    //RHINOLOGO.renderer.setPixelRatio( window.devicePixelRatio );
-    //RHINOLOGO.renderer.setSize( window.innerWidth, window.innerHeight );
+    RHINOLOGO.renderer.setPixelRatio( window.devicePixelRatio );
+    RHINOLOGO.renderer.setSize( thisWidth, thisHeight );
     var glcanvas = document.getElementById( 'glcanvas' );
     glcanvas.appendChild( RHINOLOGO.renderer.domElement );
 
-    //window.addEventListener( 'resize', onWindowResize, false );
+    window.addEventListener( 'resize', onWindowResize, false );
   }
 
   function onWindowResize() {
-    RHINOLOGO.camera.aspect = window.innerWidth / window.innerHeight;
+    RHINOLOGO.camera.aspect = thisWidth / thisHeight;
     RHINOLOGO.camera.updateProjectionMatrix();
-    RHINOLOGO.renderer.setSize( window.innerWidth, window.innerHeight );
+    RHINOLOGO.renderer.setSize( thisWidth, thisHeight );
   }
 
   function animate() {
@@ -197,6 +200,7 @@ function rhino_logo_build(){
    *
    * @param(SampleDoc) model - the model being computed
    */
+   ////////////////////////////////////////////all happens here
   function onMeshesComputed(model) {
     for(brepindex=0; brepindex<model.breps.length; brepindex++) {
       var brep = model.breps[brepindex];
