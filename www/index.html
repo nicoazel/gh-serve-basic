@@ -9,12 +9,22 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Lib Dependancy -->
-    <script src="js/lib/d3.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://threejs.org/build/three.js"></script>
+    <script src="https://files.mcneel.com/rhino3dm/js/latest/OrbitControls.js"></script>
+    <script src="https://files.mcneel.com/rhino3dm/js/latest/compute.rhino3d.js"></script>
+    <script async type="text/javascript" src="https://files.mcneel.com/rhino3dm/js/latest/rhino3dm.js"></script>
+    <!-- local lib options -->
+    <!-- <script src=libs/compute.rhino3d.js"></script> -->
+    <!--<script src=libs/rhino3d.js"></script>-->
+    <!-- <script src=libs/three.js"></script> -->
+    <!--<script src=libs/OrbitControls.js"></script>-->
   </head><!-- end of head -->
   <script>
+    //Run all your global functions here
     var onloadfunctions = function (){
       fileupload("upload_files","upload_files_text");
+      rhino_logo_build();
     }
   </script>
   <body onload="onloadfunctions()">
@@ -42,15 +52,21 @@
           <button onclick="gh_api_request()" id=submit_button type="button">Submit</button>
         </div><!-- end of Sidebar-->
         <!------------------------->
-        <div class = 'viewer-master'
-
+        <div class = 'viewer-master'>
           <div id = 'viewer-top'>
+            <div id="controls">
+              <button class="inner" onclick="getRhinoLogoMeshes()">Load Model</button>
+              <button class="inner" onclick="RhinoCompute.getAuthToken(false)">Set Authorization</button>
+              <div class="inner"><input type="checkbox" checked="true" onclick="RHINOLOGO.wireMaterial.visible = this.checked;">Wires</input></div>
+              <div class="inner"><input type="checkbox" checked="true" onclick="RHINOLOGO.meshMaterial.visible = this.checked;">Meshes</input></div>
+            </div>
           </div><!--end of viewer-top-->
-
           <div id = 'viewer-bottom'>
-          </div><!--end of viewer-bottom-->
 
-        </div><!-- end of viewer-->
+            <div id="glcanvas"></div>
+          </div><!--end of viewer-bottom-->
+        </div><!-- end of viewer-master -->
+
       </div><!-- end of main -->
       <!----------------------->
       <div class = "footer">
@@ -62,5 +78,6 @@
       <script src='js/three-viewport-setup.js'></script>
       <script src='js/file-upload-helper.js'></script>
       <script src='js/api-call-button.js'></script>
+      <script src='js/rhino-logo-example.js'></script>
   </body>
 </html>

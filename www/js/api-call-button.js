@@ -1,5 +1,6 @@
 function gh_api_request(){
   var url_input_id ='api_url_input'
+
   var inputvalues = ['twistVal',
                     'heightVal',
                     'radiusXVal',
