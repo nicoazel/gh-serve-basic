@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GH SERVE</title>
+    <meta name="description" content="aec tech 2018 hackathon project to run grasshopper remotely">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Lib Dependancy -->
+    <script src="js/lib/d3.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head><!-- end of head -->
+  <script>
+    var onloadfunctions = function (){
+      fileupload("upload_files","upload_files_text");
+    }
+  </script>
+  <body onload="onloadfunctions()">
+      <div class ='titlebar'>
+        <h1> Grasshopper Serve : AECTech Hackathon</h1>
+      </div> <!-- end of titelbar-->
+      <!--------------------------->
+      <div class = 'main'>
+        <div class = 'sidebar'>
+          <h3>inputs</h3>
+          <br>
+          <input type="file" id="upload_files" multiple size="50" onchange="myFunction()">
+          <p id="upload_files_text"></p>
+          <br>
+          <p>twistVal</p>
+          <input id="twistVal" type="range" min="1" max="100" value="50">
+          <p>heightVal</p>
+          <input id='heightVal' type="range" min="1" max="100" value="50">
+          <p>radiusXVal</p>
+          <input id='radiusXVal' type="range" min="1" max="100" value="50">
+          <p>radiusYVal</p>
+          <input id='radiusYVal' type="range" min="1" max="100" value="50">
+          <br>
+          <input type="text" value="http://21d453c0.ngrok.io/version" id="api_url_input"/>
+          <button onclick="gh_api_request()" id=submit_button type="button">Submit</button>
+        </div><!-- end of Sidebar-->
+        <!------------------------->
+        <div class = 'viewer-master'
+
+          <div id = 'viewer-top'>
+          </div><!--end of viewer-top-->
+
+          <div id = 'viewer-bottom'>
+          </div><!--end of viewer-bottom-->
+
+        </div><!-- end of viewer-->
+      </div><!-- end of main -->
+      <!----------------------->
+      <div class = "footer">
+        <h3> Thanks for Looking</h3>
+        <p>-marc, chuck, nico, carl, emil, sergey, carl</p>
+      </div><!-- end of footer -->
+
+      <!-- Script Zone -->
+      <script src='js/three-viewport-setup.js'></script>
+      <script src='js/file-upload-helper.js'></script>
+      <script src='js/api-call-button.js'></script>
+  </body>
+</html>

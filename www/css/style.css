@@ -1,0 +1,27 @@
+body{
+  background-color: black;
+}
+
+/*Class Styles */
+.titlebar{
+    background-color: #323736;
+    align-content: center;
+    height: 75px;
+}
+.main{
+  background-color: #747f72;
+}
+.sidebar{
+  min-height: 600px
+  min-width:200px
+}
+.viewer-master{
+  min-width: 600px;
+  min-height: 600px
+}
+.footer{
+  background-color: #323736;
+  align-content: center;
+  height: 75px;
+}
+/*ID Styles */
