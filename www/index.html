@@ -36,8 +36,10 @@
         <div class = 'sidebar col-1'>
           <h3>inputs</h3>
           <br>
+          <button onclick="parse_ghx()" id=parse_button type="button">parce ghx</button>
           <input type="file" id="upload_files" multiple size="50" onchange="myFunction()">
           <p id="upload_files_text"></p>
+
           <br>
           <p>twistVal</p>
           <input id="twistVal" type="range" min="1" max="100" value="50">
@@ -82,5 +84,6 @@
       <script src='js/api-call-button.js'></script>
       <script src='js/rhino-logo-example.js'></script>
       <script src='js/api-call-values.js'></script>
+      <script src='js/parse-local-ghx-file.js'></script>
   </body>
 </html>
