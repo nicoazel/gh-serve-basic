@@ -92,11 +92,19 @@ function rhino_logo_build(){
 
     function loadEnd(e) {
       longInt8View = new Uint8Array(req.response);
+      //console.log(longInt8View);
+
       var model = Module.File3dm.fromByteArray(longInt8View);
+      console.log(model);
       var doc = new RhinoLogoDoc(model);
       onModelLoaded(doc);
       doc.computeBrepWires(onWiresComputed);
-      doc.computeBrepMeshes(onMeshesComputed);
+      var data = retrunedgeometry.items[0].data
+
+      //var geom = Module.CommonObject.decode(data)
+      doc.computeBrepMeshes(data);
+//      doc.computeBrepMeshes(onMeshesComputed);
+
     }
   }
 
@@ -274,7 +282,7 @@ function rhino_logo_build(){
         const fetchFunc = (m, index) => {
           RhinoCompute.Mesh.createFromBrep(brep)
           .then(result=>{
-            var meshes = result.map(r=>Module.CommonObject.decode(r));
+            var meshes = result.map(r=>Module.CommonObject.decode(r));//point of interest
             m.breps[index]["meshes"] = meshes;
             callback(this);
           });
