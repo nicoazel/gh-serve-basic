@@ -1,8 +1,25 @@
-# gh-serve-basic
+#RESThopper
+
+## Intro
+this is a basic front end for use with a RESThopper Server. 
+It provides and interface for making apicall and pushing any resulting geometry into a ThreeJS Viewer.
 
 
-###client side ghx sender
-standards?....
+This is WIP, much of the interaction between compoenets of this page are hard coded to aid in development. 
 
-###client side response viewer
-whats incoming....
+## gh-serve-basic
+
+#### Compoenents
+
+#### GHX Selection
+
+#### Input Values for Script
+
+#### Endpoint URL Specification
+
+
+## RESThopper Standards:
+
+####client side ghx sender
+####client side response viewer
+
