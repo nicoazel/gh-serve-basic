@@ -20,6 +20,6 @@ This is WIP, much of the interaction between compoenets of this page are hard co
 
 ## RESThopper Standards:
 
-####client side ghx sender
-####client side response viewer
+#### client side ghx sender
+#### client side response viewer
 
